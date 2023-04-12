@@ -71,5 +71,49 @@ crashlytics-build.properties
 /[Aa]ssets/[Ss]treamingAssets/aa.meta
 /[Aa]ssets/[Ss]treamingAssets/aa/*
 
-# Hidden files
+# Hidden files MacOS
+# General
+.DS_Store
+.AppleDouble
+.LSOverride
+
+# Icon must end with two \r
+Icon
+
+# Thumbnails
 ._*
+
+# Files that might appear in the root of a volume
+.DocumentRevisions-V100
+.fseventsd
+.Spotlight-V100
+.TemporaryItems
+.Trashes
+.VolumeIcon.icns
+.com.apple.timemachine.donotpresent
+
+# Directories potentially created on remote AFP share
+.AppleDB
+.AppleDesktop
+Network Trash Folder
+Temporary Items
+.apdisk
+Unity_BeeAndYou/Library/ArtifactDB
+Unity_BeeAndYou/Library/ArtifactDB-lock
+Unity_BeeAndYou/Library/EditorInstance.json
+Unity_BeeAndYou/Library/PackageManager/ProjectCache
+Unity_BeeAndYou/Library/PackageManager/ProjectCache.md5
+Unity_BeeAndYou/Library/SceneVisibilityState.asset
+Unity_BeeAndYou/Library/SourceAssetDB
+Unity_BeeAndYou/Library/SourceAssetDB-lock
+Unity_BeeAndYou/Logs/shadercompiler-UnityShaderCompiler0.log
+Unity_BeeAndYou/Temp/UnityLockfile
+Unity_BeeAndYou/Temp/workerlic
+Unity_BeeAndYou/Library/ArtifactDB
+Unity_BeeAndYou/Library/ArtifactDB-lock
+Unity_BeeAndYou/Library/PackageManager/ProjectCache
+Unity_BeeAndYou/Library/PackageManager/ProjectCache.md5
+Unity_BeeAndYou/Library/SceneVisibilityState.asset
+Unity_BeeAndYou/Library/SourceAssetDB
+Unity_BeeAndYou/Library/SourceAssetDB-lock
+Unity_BeeAndYou/Logs/shadercompiler-UnityShaderCompiler0.log
