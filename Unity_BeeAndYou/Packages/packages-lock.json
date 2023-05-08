@@ -1,5 +1,11 @@
 {
   "dependencies": {
+    "ca.andydbc.unity-texture-packer": {
+      "version": "file:C:/Users/ricca/Downloads/unity-texture-packer-master",
+      "depth": 0,
+      "source": "local",
+      "dependencies": {}
+    },
     "com.unity.collab-proxy": {
       "version": "1.15.12",
       "depth": 0,

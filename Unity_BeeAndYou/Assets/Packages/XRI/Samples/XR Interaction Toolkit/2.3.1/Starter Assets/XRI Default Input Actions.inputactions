@@ -869,7 +869,7 @@
                     "name": "",
                     "id": "8da6ed3a-f621-49fe-8c76-1f6b7d7754d6",
                     "path": "<XRController>{LeftHand}/Primary2DAxis",
-                    "interactions": "Sector(directions=1)",
+                    "interactions": "Sector(directions=-1)",
                     "processors": "",
                     "groups": "Noncontinuous Move",
                     "action": "Teleport Mode Activate",
@@ -1341,7 +1341,7 @@
                 {
                     "name": "",
                     "id": "1ce80054-410d-4112-a332-50faa7fb4f23",
-                    "path": "<XRController>{RightHand}/gripPressed",
+                    "path": "<XRController>/triggerButton",
                     "interactions": "",
                     "processors": "",
                     "groups": "Generic XR Controller",
@@ -1742,17 +1742,6 @@
                 },
                 {
                     "name": "",
-                    "id": "05c1e38e-79dd-41cb-95d5-74f42e65d92f",
-                    "path": "<Touchscreen>/touch*/position",
-                    "interactions": "",
-                    "processors": "",
-                    "groups": "",
-                    "action": "Point",
-                    "isComposite": false,
-                    "isPartOfComposite": false
-                },
-                {
-                    "name": "",
                     "id": "57909bb4-1088-4975-9227-ecc87a305257",
                     "path": "<Mouse>/leftButton",
                     "interactions": "",
@@ -2100,6 +2089,17 @@
                     "processors": "",
                     "groups": "",
                     "action": "Click",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "",
+                    "id": "05c1e38e-79dd-41cb-95d5-74f42e65d92f",
+                    "path": "<Touchscreen>/touch*/position",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "",
+                    "action": "Point",
                     "isComposite": false,
                     "isPartOfComposite": false
                 }
