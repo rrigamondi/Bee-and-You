@@ -351,7 +351,7 @@ public class Hybrid8Test : MonoBehaviour
              }
              // Show the values in the GUI.
              OutputMsgText.text = outputString;
-             File.AppendAllText("BITalinoLOG.txt", outputString); //Environment.NewLine
+             //File.AppendAllText("BITalinoLOG.txt", outputString); //Environment.NewLine
          }
           Invoke("StopButtonFunction", 5);
 
