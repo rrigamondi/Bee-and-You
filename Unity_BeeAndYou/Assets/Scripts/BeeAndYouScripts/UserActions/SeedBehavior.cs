@@ -33,7 +33,6 @@ public class SeedBehavior : MonoBehaviour
       //spawn the seed, get the rigidbody, set active
       seed = Instantiate(seedPrefab, seedSpawnPos, Quaternion.identity);
       seedModel = seed.transform.GetChild(0).gameObject;
-      Debug.Log("SeedSpawn "+seedActive + " / " + seed);
 
       seedModel.GetComponent<Rigidbody>().useGravity = false;
       // !! need to reactivate gravity when user grabs it
@@ -44,7 +43,6 @@ public class SeedBehavior : MonoBehaviour
 
     public void SeedPlanting()
     {
-      Debug.Log("SeedPlanting "+seedActive);
       // track current vector3 position of the seed, destroy it and instantiate a flower instead
       //seedTrackedPos = seed.transform.position;
       Destroy(seed);
@@ -61,21 +59,14 @@ public class SeedBehavior : MonoBehaviour
       // !!!!!!! temporary, to substitute with digging gesture recognition
       if (seedActive == false)
       {
-        Debug.Log("Update and spawn "+seedActive);
         SeedSpawn();
       }
       else
       {
         //GetComponent<Rigidbody>().position
-
-        Debug.Log("Update and plant "+seedActive + " / " + seed);
         seedTrackedPos = seedModel.GetComponent<Rigidbody>().position;
-        Debug.Log(seedTrackedPos);
-
-        Debug.Log(seedTrackedPos.y + " / " + plantingHeight);
         if (seedTrackedPos.y <= plantingHeight) //should also check if user is holding it
         {
-          Debug.Log("Start SeedPlanting");
           SeedPlanting();
         }
       }
