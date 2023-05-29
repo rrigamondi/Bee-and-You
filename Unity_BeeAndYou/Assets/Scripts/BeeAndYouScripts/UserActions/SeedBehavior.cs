@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.XR.Interaction.Toolkit;
 
 public class SeedBehavior : MonoBehaviour
 {
@@ -22,7 +23,7 @@ public class SeedBehavior : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-      seedSpawnPos = new Vector3(55.0f,33.0f,55.0f);
+      //seedSpawnPos = new Vector3(55.0f,33.0f,55.0f);
       seedTrackedPos = new Vector3(55.0f,33.0f,55.0f);
       Destroy(seed);
       seedActive = false;
