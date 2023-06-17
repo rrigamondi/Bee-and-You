@@ -869,7 +869,7 @@
                     "name": "",
                     "id": "8da6ed3a-f621-49fe-8c76-1f6b7d7754d6",
                     "path": "<XRController>{LeftHand}/Primary2DAxis",
-                    "interactions": "Sector(directions=-1)",
+                    "interactions": "Sector(directions=1)",
                     "processors": "",
                     "groups": "Noncontinuous Move",
                     "action": "Teleport Mode Activate",
@@ -1341,7 +1341,7 @@
                 {
                     "name": "",
                     "id": "1ce80054-410d-4112-a332-50faa7fb4f23",
-                    "path": "<XRController>/triggerButton",
+                    "path": "<XRController>{RightHand}/gripPressed",
                     "interactions": "",
                     "processors": "",
                     "groups": "Generic XR Controller",
@@ -1742,6 +1742,17 @@
                 },
                 {
                     "name": "",
+                    "id": "05c1e38e-79dd-41cb-95d5-74f42e65d92f",
+                    "path": "<Touchscreen>/touch*/position",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "",
+                    "action": "Point",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "",
                     "id": "57909bb4-1088-4975-9227-ecc87a305257",
                     "path": "<Mouse>/leftButton",
                     "interactions": "",
@@ -2091,15 +2102,74 @@
                     "action": "Click",
                     "isComposite": false,
                     "isPartOfComposite": false
+                }
+            ]
+        },
+        {
+            "name": "Velocity",
+            "id": "c744c2cf-4c96-46ee-ac45-7e6566587f0a",
+            "actions": [
+                {
+                    "name": "RightVelocity",
+                    "type": "Value",
+                    "id": "e6316bc0-3dd2-409a-8518-f6a7e90b5e6f",
+                    "expectedControlType": "Vector3",
+                    "processors": "",
+                    "interactions": "",
+                    "initialStateCheck": true
                 },
                 {
+                    "name": "LeftVelocity",
+                    "type": "Value",
+                    "id": "18ba744f-9b7b-45d7-9157-a970b08b4d3b",
+                    "expectedControlType": "Vector3",
+                    "processors": "",
+                    "interactions": "",
+                    "initialStateCheck": true
+                }
+            ],
+            "bindings": [
+                {
                     "name": "",
-                    "id": "05c1e38e-79dd-41cb-95d5-74f42e65d92f",
-                    "path": "<Touchscreen>/touch*/position",
+                    "id": "99819aad-11f3-4183-bb78-bf4b0f5c887b",
+                    "path": "<XRController>{RightHand}/deviceVelocity",
                     "interactions": "",
                     "processors": "",
                     "groups": "",
-                    "action": "Point",
+                    "action": "RightVelocity",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "",
+                    "id": "94f53a1d-da3f-45cd-81fa-f2689c5e77eb",
+                    "path": "<OculusTouchController>/devicePose/velocity",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "",
+                    "action": "RightVelocity",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "",
+                    "id": "37fea83f-6b36-4569-872c-ef1fe1f05414",
+                    "path": "<XRController>{LeftHand}/deviceVelocity",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "",
+                    "action": "LeftVelocity",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "",
+                    "id": "af80c203-eecf-458e-b582-81a76a610fbf",
+                    "path": "<OculusTouchController>{LeftHand}/devicePose/velocity",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "",
+                    "action": "LeftVelocity",
                     "isComposite": false,
                     "isPartOfComposite": false
                 }
