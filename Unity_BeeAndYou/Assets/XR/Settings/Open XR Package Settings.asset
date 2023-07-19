@@ -107,18 +107,11 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   features:
   - {fileID: -8857017831180598584}
-  - {fileID: -8256547072923382263}
   - {fileID: 8704189552340772591}
-  - {fileID: 7882374897176626521}
-  - {fileID: -3890209590200852255}
   - {fileID: -7958428224322305585}
-  - {fileID: -1047569186360011502}
-  - {fileID: -1243614172079072825}
   - {fileID: -5745999646536479306}
-  - {fileID: 8888107003180325637}
   - {fileID: -1300019167202920559}
   - {fileID: 4690975396557737322}
-  - {fileID: -5938021480261822231}
   - {fileID: -5049123713070798847}
   m_renderMode: 1
   m_depthSubmissionMode: 0
@@ -320,7 +313,7 @@ MonoBehaviour:
   nameUi: Mock Runtime
   version: 0.0.2
   featureIdInternal: com.unity.openxr.feature.mockruntime
-  openxrExtensionStrings: XR_UNITY_null_gfx XR_UNITY_android_present
+  openxrExtensionStrings: XR_UNITY_null_gfx
   company: Unity
   priority: 0
   required: 0
@@ -345,8 +338,6 @@ MonoBehaviour:
   company: Unity
   priority: 0
   required: 0
-  targetQuest: 1
-  targetQuest2: 1
 --- !u!114 &-1243614172079072825
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -622,19 +613,13 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   features:
   - {fileID: 4217366332815142254}
-  - {fileID: 7841979753543811626}
   - {fileID: 8879540308716199668}
-  - {fileID: -8431520380748868488}
-  - {fileID: 5990508076540261053}
-  - {fileID: -6574986553489120976}
   - {fileID: 6492948188776688136}
   - {fileID: -6362537441102159446}
-  - {fileID: -6797299564186124013}
   - {fileID: -3823094849949906185}
   - {fileID: 503222603054544488}
   - {fileID: -2458293920492942063}
   - {fileID: -3738274493803938057}
-  - {fileID: 78938356190146990}
   - {fileID: 7549072827309828835}
   - {fileID: 2825852396802681240}
   m_renderMode: 0
@@ -748,7 +733,7 @@ MonoBehaviour:
   nameUi: Mock Runtime
   version: 0.0.2
   featureIdInternal: com.unity.openxr.feature.mockruntime
-  openxrExtensionStrings: XR_UNITY_null_gfx XR_UNITY_android_present
+  openxrExtensionStrings: XR_UNITY_null_gfx
   company: Unity
   priority: 0
   required: 0
