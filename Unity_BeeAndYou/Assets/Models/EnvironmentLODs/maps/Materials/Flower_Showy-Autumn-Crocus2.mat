@@ -119,12 +119,12 @@ Material:
     - _TranslucencyDistortion: 0.5
     - _TranslucencyScattering: 2
     - _TranslucencyStrength: 1
-    - _TurbulenceStrength: 0.106
+    - _TurbulenceStrength: 0.022
     - _UVSec: 0
     - _VertexNormalStrength: 1
     - _Wind: 1
-    - _WindStrength: 1
-    - _WindVariation: 0.3
+    - _WindStrength: 0.684
+    - _WindVariation: 0.231
     - _ZWrite: 1
     m_Colors:
     - _Color: {r: 1, g: 1, b: 1, a: 1}
@@ -139,5 +139,5 @@ Material:
     - _TintVariation: {r: 1, g: 1, b: 1, a: 1}
     - _TranslucencyColor: {r: 1, g: 1, b: 1, a: 1}
     - _TrunkBendFactor: {r: 1, g: 0, b: 0, a: 0}
-    - _WindFade: {r: 20, g: 10, b: 0, a: 0}
+    - _WindFade: {r: 5, g: 5, b: 0, a: 0}
   m_BuildTextureStacks: []
