@@ -6,8 +6,9 @@ using UnityEngine.XR.Interaction.Toolkit;
 public class SeedBehavior : MonoBehaviour
 {
     bool seedActive = false;
-    public GameObject seed;
-    public GameObject seedModel;
+    bool firstPlanting = true;
+    GameObject seed;
+    GameObject seedModel;
     public GameObject seedPrefab;
     public GameObject flowerPrefab;
 
@@ -19,6 +20,8 @@ public class SeedBehavior : MonoBehaviour
 
     //temporary
     public float plantingHeight = 33.5f;
+
+    public GameObject UI;
 
     // Start is called before the first frame update
     void Start()
@@ -36,10 +39,14 @@ public class SeedBehavior : MonoBehaviour
       seedModel = seed.transform.GetChild(0).gameObject;
 
       seedModel.GetComponent<Rigidbody>().useGravity = false;
-      // !! need to reactivate gravity when user grabs it
-      // ! would be great to add a glowing effect with a 2d sprite, that is active when gravity isn't, to attract user attention
 
       seedActive = true;
+    }
+
+    public void FirstGrab()
+    {
+      firstPlanting = false;
+      UI.GetComponent<UI_script>().F_FirstPlanting();
     }
 
     public void SeedPlanting()
@@ -51,6 +58,10 @@ public class SeedBehavior : MonoBehaviour
       // !! will need to differentiate flowers with multiple prefabs, could have different seeds to if we have enough time
       Instantiate(flowerPrefab, seedTrackedPos, Quaternion.identity);
 
+      if (UI.activeInHierarchy)
+      {
+        UI.GetComponent<UI_script>().G_Pollinator();
+      }
       seedActive = false;
     }
 
@@ -58,7 +69,7 @@ public class SeedBehavior : MonoBehaviour
     void Update()
     {
       // !!!!!!! temporary, to substitute with digging gesture recognition
-      if (seedActive == false)
+      if (seedActive == false && firstPlanting == false)
       {
         SeedSpawn();
       }
