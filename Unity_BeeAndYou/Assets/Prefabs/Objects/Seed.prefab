@@ -344,6 +344,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 2249346804105157215}
+  - component: {fileID: 3390443382144458248}
   m_Layer: 3
   m_Name: Seed
   m_TagString: Untagged
@@ -366,7 +367,23 @@ Transform:
   - {fileID: 3889099217076541675}
   m_Father: {fileID: 0}
   m_RootOrder: 0
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: -1000, z: 0}
+--- !u!111 &3390443382144458248
+Animation:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2161705442753378370}
+  m_Enabled: 1
+  serializedVersion: 3
+  m_Animation: {fileID: 7400000, guid: c236e08616e95654ab81a812ec431eb8, type: 2}
+  m_Animations:
+  - {fileID: 7400000, guid: c236e08616e95654ab81a812ec431eb8, type: 2}
+  m_WrapMode: 0
+  m_PlayAutomatically: 1
+  m_AnimatePhysics: 0
+  m_CullingType: 0
 --- !u!1001 &1723501463405281134
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -388,15 +405,15 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 2455517684062480261, guid: be6cf4bb93f51084382ee6c88e07d7fd, type: 3}
       propertyPath: m_LocalScale.x
-      value: 0.7
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 2455517684062480261, guid: be6cf4bb93f51084382ee6c88e07d7fd, type: 3}
       propertyPath: m_LocalScale.y
-      value: 0.6999999
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 2455517684062480261, guid: be6cf4bb93f51084382ee6c88e07d7fd, type: 3}
       propertyPath: m_LocalScale.z
-      value: 0.7
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 2455517684062480261, guid: be6cf4bb93f51084382ee6c88e07d7fd, type: 3}
       propertyPath: m_LocalPosition.x

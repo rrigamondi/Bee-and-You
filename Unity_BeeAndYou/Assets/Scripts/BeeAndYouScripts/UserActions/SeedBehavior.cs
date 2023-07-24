@@ -141,6 +141,32 @@ public class SeedBehavior : MonoBehaviour
       seedTrackedPos.y = -0.1f;
       seedActive = false;
 
+      Vector3 center = Vector3.zero; // center of the circle
+      float radius = 5.2f; // radius of the circle
+
+      float distance = Vector3.Distance(seedTrackedPos, center);
+
+      if (distance > radius)
+      {
+          if (secondPlanting)
+          {
+            firstPlanting = true;
+            secondPlanting = false;
+          }
+
+          SeedSpawn();
+
+          return;
+
+          // seed = Instantiate(seedPrefab, seedSpawningPos, Quaternion.identity);
+          // seedModel = seed.transform.GetChild(0).gameObject;
+          //
+          // seedModel.GetComponent<Rigidbody>().useGravity = false;
+          // seedActive = true;
+          // SeedPlanting();
+          // return;
+      }
+
       currentFlower = Instantiate(flowerPrefab, seedTrackedPos, Quaternion.identity) as GameObject;
 
       if (UI.activeInHierarchy && secondPlanting)

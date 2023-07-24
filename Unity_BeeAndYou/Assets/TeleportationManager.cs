@@ -61,8 +61,6 @@ public class TeleportationManager : MonoBehaviour
             // destinationRotation = ?,
         };
 
-        Debug.Log($"Teleporting to position: {request.destinationPosition}");
-
         provider.QueueTeleportRequest(request);
 
         rayInteractor.enabled = false;
