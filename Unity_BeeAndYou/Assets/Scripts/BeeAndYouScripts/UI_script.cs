@@ -77,8 +77,6 @@ public class UI_script : MonoBehaviour
       spriteRenderer.sprite = spriteF;
     }
 
-// ^ ok
-
     public void G_Pollinator()
     {
       spriteRenderer.sprite = spriteG;
