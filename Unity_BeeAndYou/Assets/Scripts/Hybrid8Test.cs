@@ -40,6 +40,9 @@ public class Hybrid8Test : MonoBehaviour
     private int BiosignalspluxSoloPID = 532;
     private int MaxLedIntensity = 255;
 
+    public int outputResp;
+    public int outputHeart;
+
     // Start is called before the first frame update
     private void Start()
     {
@@ -347,13 +350,24 @@ public class Hybrid8Test : MonoBehaviour
              string outputString = ">";
              for (int j = 0; j < data.Length; j++)
              {
-                 outputString += data[j] + "-";
+               // if (j==0)
+               // {
+               //   outputHeart = data[j];
+               // }
+               // else if (j==1)
+               // {
+               //   outputResp = data[j];
+               // }
+               outputHeart = data[0];
+               outputResp = data[1];
+               outputString += data[j] + "-";
              }
              // Show the values in the GUI.
              OutputMsgText.text = outputString;
+
              //File.AppendAllText("BITalinoLOG.txt", outputString); //Environment.NewLine
          }
-          Invoke("StopButtonFunction", 5);
+          //Invoke("StopButtonFunction", 5);
 
 
      }
