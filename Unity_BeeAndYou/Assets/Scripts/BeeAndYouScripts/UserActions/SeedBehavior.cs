@@ -98,11 +98,14 @@ public class SeedBehavior : MonoBehaviour
       if (firstPlanting)
       {
         seedModel.GetComponent<SeedGrabbed>().firstGrab = true;
+
       }
       else {
         seedModel.GetComponent<SeedGrabbed>().firstGrab = false;
+        secondPlanting = false;
       }
       seedActive = true;
+
     }
 
     public void FirstGrab()
@@ -140,9 +143,13 @@ public class SeedBehavior : MonoBehaviour
 
       currentFlower = Instantiate(flowerPrefab, seedTrackedPos, Quaternion.identity) as GameObject;
 
-      if (UI.activeInHierarchy)
+      if (UI.activeInHierarchy && secondPlanting)
       {
         UI.GetComponent<UI_script>().G_Pollinator();
+      }
+      else if (!secondPlanting)
+      {
+        UI.SetActive(false);
       }
 
       plantLanding = transform.TransformPoint(currentFlower.transform.GetChild(0).gameObject.GetComponent<Transform>().position);
@@ -196,11 +203,6 @@ public class SeedBehavior : MonoBehaviour
     {
       firstPlanting = false;
       UI.GetComponent<UI_script>().H_Pollinating();
-
-      if (!secondPlanting)
-      {
-        UI.SetActive(false);
-      }
 
       SeedSpawn();
     }
