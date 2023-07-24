@@ -1,4 +1,4 @@
-﻿# This .gitignore file should be placed at the root of your Unity project directory
+# This .gitignore file should be placed at the root of your Unity project directory
 #
 # Get latest from https://github.com/github/gitignore/blob/main/Unity.gitignore
 #
@@ -117,3 +117,4 @@ Unity_BeeAndYou/Library/SceneVisibilityState.asset
 Unity_BeeAndYou/Library/SourceAssetDB
 Unity_BeeAndYou/Library/SourceAssetDB-lock
 Unity_BeeAndYou/Logs/shadercompiler-UnityShaderCompiler0.log
+PluxData/~$PluxUnityLOG.xlsx

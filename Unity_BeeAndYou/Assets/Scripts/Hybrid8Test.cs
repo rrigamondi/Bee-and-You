@@ -11,6 +11,10 @@ public class Hybrid8Test : MonoBehaviour
     // Class Variables
     private PluxDeviceManager pluxDevManager;
 
+    public GameObject natureObject;
+    private AudioSource audioSource;
+    private float volumeChangeAmount = 0.1f;
+
     // GUI Objects.
     public Button ScanButton;
 
@@ -43,14 +47,28 @@ public class Hybrid8Test : MonoBehaviour
     public int outputResp;
     public int outputHeart;
 
+    // 定义用于存储呼吸信号的列表
+List<float> breathSignalData = new List<float>();
+// 定义10秒的时间间隔
+float detectionInterval = 10f;
+float timer = 0f;
+private int peakCount = 0;
+float volumeIncreaseAmount = 0.5f; // 假设为0.1
+float volumeDecreaseAmount = 0.5f; // 假设为0.1
+private FlockController flockController;
+
     // Start is called before the first frame update
     private void Start()
     {
         // Initialise object
         pluxDevManager = new PluxDeviceManager(ScanResults, ConnectionDone, AcquisitionStarted, OnDataReceived, OnEventDetected, OnExceptionRaised);
 
+         flockController = GameObject.Find("NameOfFlockControllerGameObject").GetComponent<FlockController>();
+
         // Important call for debug purposes by creating a log file in the root directory of the project.
         pluxDevManager.WelcomeFunctionUnity();
+
+         flockController = GameObject.Find("NameOfFlockControllerGameObject").GetComponent<FlockController>();
     }
 
     // Update function, being constantly invoked by Unity.
@@ -220,6 +238,76 @@ public class Hybrid8Test : MonoBehaviour
         }
     }
 
+    public void ProcessBreathSignalData(string outputString)
+    {
+        // 将呼吸信号值（outputString）添加到列表中
+        breathSignalData.Add(float.Parse(outputString));
+        // 每过 detectionInterval 秒进行一次峰值数量检测
+        timer += Time.deltaTime;
+        if (timer >= detectionInterval)
+        {
+            timer = 0f;
+            // 计算峰值数量
+            peakCount = CountPeaks(breathSignalData);
+            //flockController.breathSignalPeakCount = peakCount;
+            // 根据峰值数量调整音乐音量
+            AdjustMusicVolume(peakCount);
+            // 清空呼吸信号列表，准备下一次检测
+            breathSignalData.Clear();
+        }
+    }
+    int CountPeaks(List<float> signalData)
+    {
+        int peakCount = 0;
+        for (int i = 1; i < signalData.Count - 1; i++)
+        {
+            if (signalData[i] > signalData[i - 1] && signalData[i] > signalData[i + 1])
+            {
+                peakCount++;
+            }
+        }
+        return peakCount;
+    }
+    void AdjustMusicVolume(int peakCount)
+    {
+        // 根据游戏对象名字 "Nature" 获取 AudioSource 组件
+       // audioSource = natureObject.GetComponent<AudioSource>();
+        // 假设音乐的音量范围在 0~1 之间
+       // float currentVolume = natureAudioSource.volume;
+        if (peakCount < 3)
+        {
+            // 如果峰值数量小于 3 个，则将音量提高
+            IncreaseVolume();
+            Debug.Log("Volume:" + audioSource.volume);
+        }
+        else
+        {
+            // 如果峰值数量大于等于 3 个，则将音量降低
+            DecreaseVolume();
+            Debug.Log("Volume:" + audioSource.volume);
+        }
+    }
+    private void IncreaseVolume()
+    {
+        if (audioSource != null)
+        {
+            // 增加音量
+            audioSource.volume += volumeChangeAmount;
+            // 确保音量不超过最大值（1）
+            audioSource.volume = Mathf.Clamp01(audioSource.volume);
+        }
+    }
+    private void DecreaseVolume()
+    {
+        if (audioSource != null)
+        {
+            // 减小音量
+            audioSource.volume -= volumeChangeAmount;
+            // 确保音量不小于最小值（0）
+            audioSource.volume = Mathf.Clamp01(audioSource.volume);
+        }
+    }
+
     // Method called when the "Stop Acquisition" button is pressed.
     public void StopButtonFunction()
     {
@@ -365,9 +453,12 @@ public class Hybrid8Test : MonoBehaviour
              // Show the values in the GUI.
              OutputMsgText.text = outputString;
 
+             ProcessBreathSignalData(outputString);
+
              //File.AppendAllText("BITalinoLOG.txt", outputString); //Environment.NewLine
          }
           //Invoke("StopButtonFunction", 5);
+
 
 
      }
