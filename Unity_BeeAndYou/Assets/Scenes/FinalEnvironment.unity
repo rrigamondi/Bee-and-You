@@ -13427,7 +13427,7 @@ WindZone:
   m_Enabled: 1
   m_Mode: 0
   m_Radius: 23.41
-  m_WindMain: 1
+  m_WindMain: 5.93
   m_WindTurbulence: 1
   m_WindPulseMagnitude: 0.5
   m_WindPulseFrequency: 0.01
@@ -24800,7 +24800,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _windSettings:
     WindDirection: {x: 0.9999722, y: -0.0074534165}
-    WindStrength: 0.2
+    WindStrength: 1.186
     WindSpeed: 0.01
     Turbulence: 0.2
   _sourceWindZone: {fileID: 554052213}
@@ -39850,6 +39850,8 @@ MonoBehaviour:
   InfraredIntensityDropdown: {fileID: 690105064}
   OutputMsgText: {fileID: 1729302243}
   samplingRate: 10
+  outputResp: 0
+  outputHeart: 0
 --- !u!114 &1820540613
 MonoBehaviour:
   m_ObjectHideFlags: 0
