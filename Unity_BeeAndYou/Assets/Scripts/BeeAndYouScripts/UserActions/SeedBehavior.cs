@@ -7,10 +7,16 @@ public class SeedBehavior : MonoBehaviour
 {
     bool seedActive = false;
     bool firstPlanting = true;
+    bool secondPlanting = false;
+
     GameObject seed;
     GameObject seedModel;
     public GameObject seedPrefab;
+
     public GameObject flowerPrefab;
+    public GameObject flowerTypeBee;
+    public GameObject flowerTypeButterfly;
+    public GameObject flowerTypeDragonfly;
 
     public Vector3 seedSpawnPos;
     public GameObject firstSeedSpawner;
@@ -47,6 +53,8 @@ public class SeedBehavior : MonoBehaviour
     Vector3 plantLanding;
 
     private GameObject currentFlower;
+
+    private string currentType;
 
     // Start is called before the first frame update
     void Start()
@@ -100,51 +108,104 @@ public class SeedBehavior : MonoBehaviour
     public void FirstGrab()
     {
       firstPlanting = false;
+      secondPlanting = true;
       UI.GetComponent<UI_script>().F_FirstPlanting();
     }
 
     public void SeedPlanting()
     {
+      var randomPick = Random.Range(0, 150);
+      if (randomPick < 70)
+      {
+        currentType = "bee";
+        flowerPrefab = flowerTypeBee;
+      }
+      else if (randomPick > 125)
+      {
+        currentType = "dragonfly";
+        flowerPrefab = flowerTypeDragonfly;
+      }
+      else
+      {
+        currentType = "butterfly";
+        flowerPrefab = flowerTypeButterfly;
+      }
+
       // track current vector3 position of the seed, destroy it and instantiate a flower instead
       //seedTrackedPos = seed.transform.position;
       seed.SetActive(false);
       Destroy(seed);
       seedTrackedPos.y = -0.1f;
-      // !! will need to differentiate flowers with multiple prefabs, could have different seeds to if we have enough time
+      seedActive = false;
+
       currentFlower = Instantiate(flowerPrefab, seedTrackedPos, Quaternion.identity) as GameObject;
 
       if (UI.activeInHierarchy)
       {
         UI.GetComponent<UI_script>().G_Pollinator();
       }
-      seedActive = false;
 
       plantLanding = transform.TransformPoint(currentFlower.transform.GetChild(0).gameObject.GetComponent<Transform>().position);
+
+      PollinatorSpawn();
     }
 
     public void PollinatorSpawn()
     {
-      beeAmount +=1;
-      Debug.Log(beeAmount);
-      (Instantiate (landingPrefab, plantLanding, Quaternion.identity) as GameObject).transform.parent = beeLanding.transform;
-      beeLandingActiveSpots +=1;
+      if (currentType == "bee")
+      {
+        (Instantiate (landingPrefab, plantLanding, Quaternion.identity) as GameObject).transform.parent = beeLanding.transform;
 
-      beeControl.GetComponent<FlockController>()._childAmount = beeAmount;
-      butterflyControl.GetComponent<FlockController>()._childAmount = butterflyAmount;
-      dragonflyControl.GetComponent<FlockController>()._childAmount = dragonflyAmount;
+        beeAmount +=1;
+        beeLandingActiveSpots +=1;
 
-      beeLanding.GetComponent<LandingSpotController>()._activeLandingSpots = beeLandingActiveSpots;
-      butterflyLanding.GetComponent<LandingSpotController>()._activeLandingSpots = butterflyLandingActiveSpots;
-      dragonflyLanding.GetComponent<LandingSpotController>()._activeLandingSpots = dragonflyLandingActiveSpots;
+        beeControl.GetComponent<FlockController>()._childAmount = beeAmount;
+        beeLanding.GetComponent<LandingSpotController>()._activeLandingSpots = beeLandingActiveSpots;
 
-      //Invoke("ServeNextSeed", 5.0f);
+        Debug.Log("bees?");
+      }
+      else if (currentType == "butterfly")
+      {
+        (Instantiate (landingPrefab, plantLanding, Quaternion.identity) as GameObject).transform.parent = butterflyLanding.transform;
+
+        butterflyAmount +=1;
+        butterflyLandingActiveSpots +=1;
+
+        butterflyControl.GetComponent<FlockController>()._childAmount = butterflyAmount;
+        butterflyLanding.GetComponent<LandingSpotController>()._activeLandingSpots = butterflyLandingActiveSpots;
+
+        Debug.Log("butterfly");
+      }
+      else if (currentType == "dragonfly")
+      {
+        (Instantiate (landingPrefab, plantLanding, Quaternion.identity) as GameObject).transform.parent = dragonflyLanding.transform;
+
+        dragonflyAmount +=1;
+        dragonflyLandingActiveSpots +=1;
+
+        dragonflyControl.GetComponent<FlockController>()._childAmount = dragonflyAmount;
+        dragonflyLanding.GetComponent<LandingSpotController>()._activeLandingSpots = dragonflyLandingActiveSpots;
+
+        Debug.Log("dragonfly");
+      }
+
+      Invoke("ServeNextSeed", 5.0f);
     }
 
-    // public void ServeNextSeed()
-    // {
-    //   SeedSpawn();
-    //   UI.GetComponent<UI_script>().H_Pollinating();
-    // }
+    public void ServeNextSeed()
+    {
+      firstPlanting = false;
+      UI.GetComponent<UI_script>().H_Pollinating();
+
+      if (!secondPlanting)
+      {
+        UI.SetActive(false);
+      }
+
+      SeedSpawn();
+    }
+
+
 
     // Update is called once per frame
     void Update()

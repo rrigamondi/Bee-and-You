@@ -43,11 +43,25 @@ public class TeleportationManager : MonoBehaviour
             return;
         }
 
+        Vector3 center = Vector3.zero; // center of the circle
+        float radius = 5.2f; // radius of the circle
+
+        Vector3 hitPosition = hit.point;
+        float distance = Vector3.Distance(hitPosition, center);
+
+        if (distance > radius)
+        {
+            Vector3 direction = (hitPosition - center).normalized;
+            hitPosition = center + direction * radius;
+        }
+
         TeleportRequest request = new TeleportRequest()
         {
-            destinationPosition = hit.point,
+            destinationPosition = hitPosition,
             // destinationRotation = ?,
         };
+
+        Debug.Log($"Teleporting to position: {request.destinationPosition}");
 
         provider.QueueTeleportRequest(request);
 
