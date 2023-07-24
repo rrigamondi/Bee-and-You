@@ -15,7 +15,7 @@ GameObject:
   - component: {fileID: 4372626735558259750}
   - component: {fileID: 3613795187843596437}
   - component: {fileID: 592692966177562862}
-  m_Layer: 0
+  m_Layer: 3
   m_Name: almondKernel
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -301,7 +301,10 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   notification: {fileID: 3885792283229152775}
   seedIsGrabbed: 0
+  firstGrab: 1
   eventSys: {fileID: 0}
+  notificationFirstAnimationSpeed: 1
+  notificationEndPosition: {x: 0, y: 0.15, z: 0}
 --- !u!1 &1995614885526861600
 GameObject:
   m_ObjectHideFlags: 0
@@ -311,7 +314,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 3041852266947304076}
-  m_Layer: 0
+  m_Layer: 3
   m_Name: attach
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -341,7 +344,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 2249346804105157215}
-  m_Layer: 0
+  m_Layer: 3
   m_Name: Seed
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -384,12 +387,24 @@ PrefabInstance:
       value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 2455517684062480261, guid: be6cf4bb93f51084382ee6c88e07d7fd, type: 3}
+      propertyPath: m_LocalScale.x
+      value: 0.7
+      objectReference: {fileID: 0}
+    - target: {fileID: 2455517684062480261, guid: be6cf4bb93f51084382ee6c88e07d7fd, type: 3}
+      propertyPath: m_LocalScale.y
+      value: 0.6999999
+      objectReference: {fileID: 0}
+    - target: {fileID: 2455517684062480261, guid: be6cf4bb93f51084382ee6c88e07d7fd, type: 3}
+      propertyPath: m_LocalScale.z
+      value: 0.7
+      objectReference: {fileID: 0}
+    - target: {fileID: 2455517684062480261, guid: be6cf4bb93f51084382ee6c88e07d7fd, type: 3}
       propertyPath: m_LocalPosition.x
       value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 2455517684062480261, guid: be6cf4bb93f51084382ee6c88e07d7fd, type: 3}
       propertyPath: m_LocalPosition.y
-      value: -0.06
+      value: -0.059999995
       objectReference: {fileID: 0}
     - target: {fileID: 2455517684062480261, guid: be6cf4bb93f51084382ee6c88e07d7fd, type: 3}
       propertyPath: m_LocalPosition.z

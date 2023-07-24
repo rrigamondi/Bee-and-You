@@ -18,12 +18,19 @@ public class UI_script : MonoBehaviour
   public GameObject eventSys;
   public int screenCounter = 0;
 
+  public GameObject leftControlSelect;
+  public GameObject leftControlMove;
+
 
     // Start is called before the first frame update
     void Start()
     {
       spriteRenderer = gameObject.GetComponent<SpriteRenderer>();
       screenCounter = 0;
+
+      leftControlSelect.SetActive(true);
+      leftControlMove.SetActive(false);
+
       A_Intro();
     }
 
@@ -60,6 +67,9 @@ public class UI_script : MonoBehaviour
       spriteRenderer.sprite = spriteE;
 
       eventSys.GetComponent<SeedBehavior>().SeedSpawn();
+
+      leftControlSelect.SetActive(false);
+      leftControlMove.SetActive(true);
     }
 
     public void F_FirstPlanting()

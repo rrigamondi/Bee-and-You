@@ -13,13 +13,15 @@ public class SeedBehavior : MonoBehaviour
     public GameObject flowerPrefab;
 
     public Vector3 seedSpawnPos;
+    public GameObject firstSeedSpawner;
+    Vector3 seedSpawningPos;
     Vector3 seedTrackedPos;
 
     //public Vector3 seedSpawnPos = (55,33,55);
     //Vector3 seedTrackedPos = (0,50,0);
 
     //temporary
-    public float plantingHeight = 33.5f;
+    public float plantingHeight = 0.05f;
 
     public GameObject UI;
 
@@ -35,11 +37,26 @@ public class SeedBehavior : MonoBehaviour
     public void SeedSpawn()
     {
       //spawn the seed, get the rigidbody, set active
-      seed = Instantiate(seedPrefab, seedSpawnPos, Quaternion.identity);
+      if (firstPlanting)
+      {
+        seedSpawningPos = firstSeedSpawner.GetComponent<Transform>().position;
+      }
+      else {
+        seedSpawningPos = seedSpawnPos;
+      }
+
+      seed = Instantiate(seedPrefab, seedSpawningPos, Quaternion.identity);
       seedModel = seed.transform.GetChild(0).gameObject;
 
       seedModel.GetComponent<Rigidbody>().useGravity = false;
 
+      if (firstPlanting)
+      {
+        seedModel.GetComponent<SeedGrabbed>().firstGrab = true;
+      }
+      else {
+        seedModel.GetComponent<SeedGrabbed>().firstGrab = false;
+      }
       seedActive = true;
     }
 
@@ -53,8 +70,9 @@ public class SeedBehavior : MonoBehaviour
     {
       // track current vector3 position of the seed, destroy it and instantiate a flower instead
       //seedTrackedPos = seed.transform.position;
+      seed.SetActive(false);
       Destroy(seed);
-      seedTrackedPos.y -= 0.1f;
+      seedTrackedPos.y = -0.1f;
       // !! will need to differentiate flowers with multiple prefabs, could have different seeds to if we have enough time
       Instantiate(flowerPrefab, seedTrackedPos, Quaternion.identity);
 
