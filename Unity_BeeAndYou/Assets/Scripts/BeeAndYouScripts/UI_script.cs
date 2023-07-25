@@ -92,7 +92,7 @@ public class UI_script : MonoBehaviour
       screenCounter += 1;
 
       if (screenCounter == 1){B_Controls();}
-      else if (screenCounter == 2){C_HeartInfo();}
+      else if (screenCounter == 2){screenCounter = 3;D_BreathInfo();}
       else if (screenCounter == 3){D_BreathInfo();}
       else if (screenCounter == 4){E_FirstSeed();}
     }
@@ -102,7 +102,7 @@ public class UI_script : MonoBehaviour
       screenCounter -= 1;
 
       if (screenCounter == 1){B_Controls();}
-      else if (screenCounter == 2){C_HeartInfo();}
+      else if (screenCounter == 2){screenCounter = 1;B_Controls();}
       else if (screenCounter == 3){D_BreathInfo();}
       else if (screenCounter == 4){E_FirstSeed();}
       else if (screenCounter == 0){A_Intro();}
