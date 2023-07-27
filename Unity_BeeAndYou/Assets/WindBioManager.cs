@@ -21,8 +21,8 @@ public class WindBioManager : MonoBehaviour
     {
       var data = dataSource.GetComponent<Hybrid8Test>().outputResp*multiplier;
 
-      float normal = Mathf.InverseLerp(1*multiplier, 1100*multiplier, data);
-      float mainValue = -Mathf.Lerp(-5, 5, normal);
+      float normal = Mathf.InverseLerp(250*multiplier, 650*multiplier, data);
+      float mainValue = -Mathf.Lerp(-6, 6, normal);
       float freqValue = -Mathf.Lerp(-2, 2, normal)/2;
 
       if (data == 0)

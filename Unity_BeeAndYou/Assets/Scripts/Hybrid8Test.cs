@@ -438,14 +438,6 @@ private FlockController flockController;
              string outputString = ">";
              for (int j = 0; j < data.Length; j++)
              {
-               // if (j==0)
-               // {
-               //   outputHeart = data[j];
-               // }
-               // else if (j==1)
-               // {
-               //   outputResp = data[j];
-               // }
                outputHeart = data[0];
                outputResp = data[1];
                outputString += data[j] + "-";
