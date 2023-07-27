@@ -9,6 +9,8 @@ public class UI_script : MonoBehaviour
   public Sprite spriteB;
   public Sprite spriteC;
   public Sprite spriteD;
+    public Sprite spriteD2;
+    public Sprite spriteD3;
   public Sprite spriteE;
   public Sprite spriteF;
   public Sprite spriteG;
@@ -61,6 +63,16 @@ public class UI_script : MonoBehaviour
       spriteRenderer.sprite = spriteD;
     }
 
+    public void D_BreathInfo2()
+    {
+      spriteRenderer.sprite = spriteD2;
+    }
+
+    public void D_BreathInfo3()
+    {
+      spriteRenderer.sprite = spriteD3;
+    }
+
     public void E_FirstSeed()
     {
       canvas.SetActive(false);
@@ -92,9 +104,10 @@ public class UI_script : MonoBehaviour
       screenCounter += 1;
 
       if (screenCounter == 1){B_Controls();}
-      else if (screenCounter == 2){screenCounter = 3;D_BreathInfo();}
-      else if (screenCounter == 3){D_BreathInfo();}
-      else if (screenCounter == 4){E_FirstSeed();}
+      else if (screenCounter == 2){D_BreathInfo();}
+      else if (screenCounter == 3){D_BreathInfo2();}
+      else if (screenCounter == 4){D_BreathInfo3();}
+      else if (screenCounter == 5){E_FirstSeed();}
     }
 
     public void BackButton()
@@ -102,9 +115,10 @@ public class UI_script : MonoBehaviour
       screenCounter -= 1;
 
       if (screenCounter == 1){B_Controls();}
-      else if (screenCounter == 2){screenCounter = 1;B_Controls();}
-      else if (screenCounter == 3){D_BreathInfo();}
-      else if (screenCounter == 4){E_FirstSeed();}
+      else if (screenCounter == 2){D_BreathInfo();}
+      else if (screenCounter == 3){D_BreathInfo2();}
+      else if (screenCounter == 4){D_BreathInfo3();}
+      else if (screenCounter == 5){E_FirstSeed();}
       else if (screenCounter == 0){A_Intro();}
     }
 

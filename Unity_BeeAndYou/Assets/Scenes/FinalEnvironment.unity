@@ -38,7 +38,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 0}
-  m_IndirectSpecularColor: {r: 0.4494769, g: 0.4995473, b: 0.57568896, a: 1}
+  m_IndirectSpecularColor: {r: 0.44947654, g: 0.49954683, b: 0.57568836, a: 1}
   m_UseRadianceAmbientProbe: 0
 --- !u!157 &3
 LightmapSettings:
@@ -23244,15 +23244,15 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1135854317}
-  m_LocalRotation: {x: 0.14690419, y: -0.39565575, z: 0.06439474, w: 0.90428376}
-  m_LocalPosition: {x: -0.33000013, y: 1.43, z: 0.56000006}
+  m_LocalRotation: {x: 0.16039796, y: 0, z: 0, w: 0.98705244}
+  m_LocalPosition: {x: -0, y: 1.19, z: 0.6}
   m_LocalScale: {x: 0.029999994, y: 0.030000001, z: 0.029999997}
   m_Children:
   - {fileID: 46384383}
   - {fileID: 1298817543}
   m_Father: {fileID: 1883262050}
   m_RootOrder: 0
-  m_LocalEulerAnglesHint: {x: 18.46, y: -47.26, z: 0.013}
+  m_LocalEulerAnglesHint: {x: 18.46, y: 0, z: 0}
 --- !u!114 &1135854319
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -23269,6 +23269,8 @@ MonoBehaviour:
   spriteB: {fileID: 21300000, guid: efa7439bea02fff4e9d5711eb2edb725, type: 3}
   spriteC: {fileID: 21300000, guid: 0b7f7c2cd7ed7554fa5e17364a1ba4a7, type: 3}
   spriteD: {fileID: 21300000, guid: e568738040a9fdf4198a7a9259bb4a7c, type: 3}
+  spriteD2: {fileID: 21300000, guid: 4509a9f01363aef438ba5b3d2735c3f2, type: 3}
+  spriteD3: {fileID: 21300000, guid: 824f7e54a3d1c7e44ad9579f7441f335, type: 3}
   spriteE: {fileID: 21300000, guid: 6a76d9c106e984d49a198980c9243bf2, type: 3}
   spriteF: {fileID: 21300000, guid: 0fbcbb73da1b69b43b39757400d1bc97, type: 3}
   spriteG: {fileID: 21300000, guid: 0dec3d6e34599f246a419ce26e0068a2, type: 3}
